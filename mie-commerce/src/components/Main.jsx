@@ -1,5 +1,12 @@
+import Button from "./Button";
+
 function Main() {
-  return <h2>Catalogo Completo</h2>;
+  return (
+    <main>
+      <h2>Acerca de nosotros</h2>
+      <Button />
+    </main>
+  );
 }
 
 export default Main;
