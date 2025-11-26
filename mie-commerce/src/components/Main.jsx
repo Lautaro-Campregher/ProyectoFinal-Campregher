@@ -1,13 +1,12 @@
-import Button from "./Button";
 import Catalogo from "./Catalogo";
 
 function Main() {
   return (
     <>
-      <main>
+      <div>
         <h2>Catalogo</h2>
         <Catalogo />
-      </main>
+      </div>
     </>
   );
 }

@@ -1,5 +1,7 @@
 
 import { useEffect,useState } from 'react'
+import Button from './Button';
+import Counter from './Counter';
 
 
 function Catalogo() {
@@ -21,6 +23,8 @@ function Catalogo() {
                     <h3>{producto.title}</h3>
                     <img src={producto.image} alt={producto.title}/>
                     <p>{producto.price}</p>
+                    <Counter />
+                    <Button />
                 </div>
             ))}
          </div>
