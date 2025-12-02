@@ -3,7 +3,7 @@ import Catalogo from "./Catalogo";
 function Main() {
   return (
     <>
-      <div>
+      <div className="catalogo-container">
         <h2>Catalogo</h2>
         <Catalogo />
       </div>

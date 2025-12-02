@@ -1,16 +1,12 @@
-import { useState } from "react";
 import "./Counter";
 
-function Button() {
-  //const [button, useButton] = useState(false);
-
-  const handleClick = () => {};
-
+function Button({ resetCounter }) {
   return (
-    <button className="btn" onClick={handleClick}>
-      {" "}
-      Agregar al carrito
-    </button>
+    <>
+      <button className="btn" onClick={resetCounter}>
+        Agregar al carrito
+      </button>
+    </>
   );
 }
 

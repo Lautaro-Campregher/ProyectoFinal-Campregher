@@ -1,15 +1,8 @@
-import { useState } from "react";
-
-function Counter() {
-  const [counter, setCounter] = useState(0);
-
-  const handleClick = () => {
-    setCounter(counter + 1);
-  };
+function Counter({ counter, addProd }) {
   return (
     <div>
       <p id="parrafo">Unidades:{counter}</p>
-      <button onClick={handleClick}>+</button>
+      <button onClick={addProd}>+</button>
     </div>
   );
 }

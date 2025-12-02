@@ -1,5 +1,5 @@
 function Footer() {
-  return <div>Magnolia Mates. 2025</div>;
+  return <div>FULL SHOP. 2025</div>;
 }
 
 export default Footer;

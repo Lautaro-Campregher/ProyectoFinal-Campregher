@@ -14,6 +14,13 @@ function Catalogo() {
     .then(data=>setProductos(data))
     .catch(error=> console.error(error));
     },[])
+
+    const [counter, setCounter] = useState(0);
+
+    const resetCounter = () => setCounter(0);
+    const addProd =()=> setCounter(counter + 1);
+
+    
     return(
         <>
         <div className='container'>
@@ -23,8 +30,8 @@ function Catalogo() {
                     <h3>{producto.title}</h3>
                     <img src={producto.image} alt={producto.title}/>
                     <p>{producto.price}</p>
-                    <Counter />
-                    <Button />
+                    <Counter  counter={counter} addProd={addProd}/>
+                    <Button resetCounter={resetCounter}/>
                 </div>
             ))}
          </div>
