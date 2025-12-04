@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./Button";
 
 function Categorias({ productos }) {
   const [categoriaBuscada, setCategoriaBuscada] = useState("");
@@ -15,16 +16,16 @@ function Categorias({ productos }) {
         onChange={(e) => setCategoriaBuscada(e.target.value)}
       />
 
-      <ul>
+      <div className="catalogo">
         {productosFiltrados.map((item) => (
           <div key={item.id} className="card">
             <h3>{item.title}</h3>
             <img src={item.image} alt={item.title} />
-            <p>${item.price}</p>
-            <p>{item.description}</p>
+            <h4>{item.category}</h4>
+            <Button id={item.id} />
           </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

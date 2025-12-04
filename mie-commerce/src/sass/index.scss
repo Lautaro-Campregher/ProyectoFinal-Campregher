@@ -81,13 +81,6 @@ body {
     text-align: center;
     padding: 1rem;
     background-color: grey;
-
-    p {
-      font-weight: bold;
-      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-      font-size: 20px;
-    }
   }
 
   img {
@@ -95,4 +88,48 @@ body {
     height: 88%;
     padding: 30px;
   }
+}
+
+.producto {
+  display: flex;
+  width: 400px;
+  margin: 25px auto;
+  padding: 1rem;
+  flex-direction: column;
+
+  .card_producto {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 1rem;
+    background-color: grey;
+
+    p {
+      font-weight: bold;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+  img {
+    width: 100%;
+    height: 88%;
+    padding: 30px;
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 1.5rem 0;
+  text-align: center;
+  background-color: #222;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-top: 3rem;
 }

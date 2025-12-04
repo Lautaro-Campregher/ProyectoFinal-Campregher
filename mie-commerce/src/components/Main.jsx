@@ -1,6 +1,3 @@
-import Catalogo from "./Catalogo";
-import CatalogoContainer from "./CatalogoContainer";
-
 function Main() {
   return (
     <>
