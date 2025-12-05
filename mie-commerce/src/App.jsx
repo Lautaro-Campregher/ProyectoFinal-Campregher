@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import Main from "./components/Main";
+
 import Footer from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
 import CatalogoContainer from "./components/CatalogoContainer";
@@ -12,14 +12,10 @@ function App() {
       <Header />
       <main className="main">
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/productos" element={<CatalogoContainer />} />
-          <Route
-            path="/productos/product/:id"
-            element={<ProductContainer />}
-          ></Route>
-          <Route path="categorias/product/:id" element={<ProductContainer />} />
+          <Route path="/" element={<CatalogoContainer />} />
+          <Route path="/product/:id" element={<ProductContainer />}></Route>
           <Route path="/categorias" element={<CategoriasContainer />} />
+          <Route path="categorias/product/:id" element={<ProductContainer />} />
         </Routes>
       </main>
       <Footer />

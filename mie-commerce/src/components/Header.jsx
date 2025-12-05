@@ -9,10 +9,6 @@ function Header() {
           Inicio
         </NavLink>
 
-        <NavLink to="/productos" className="nav__link">
-          Productos
-        </NavLink>
-
         <NavLink to="/categorias" className="nav__link">
           Categorias
         </NavLink>
