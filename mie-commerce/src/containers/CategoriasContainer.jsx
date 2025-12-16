@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getList } from "./fetch";
-import Categorias from "./Categorias";
+import { getList } from "../components/fetch";
+import Categorias from "../components/Categorias";
 
 function CategoriasContainer() {
   const [products, setProducts] = useState([]);

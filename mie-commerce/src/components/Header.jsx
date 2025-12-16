@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import CartWidget from "./CartWidget";
 
 function Header() {
   return (
@@ -13,6 +14,7 @@ function Header() {
           Categorias
         </NavLink>
       </nav>
+      <CartWidget />
     </header>
   );
 }

@@ -2,9 +2,9 @@ import Header from "./components/Header";
 
 import Footer from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
-import CatalogoContainer from "./components/CatalogoContainer";
-import ProductContainer from "./components/ProductContainer";
-import CategoriasContainer from "./components/CategoriasContainer";
+import CatalogoContainer from "./containers/CatalogoContainer";
+import ProductContainer from "./containers/ProductContainer";
+import CategoriasContainer from "./containers/CategoriasContainer";
 
 function App() {
   return (

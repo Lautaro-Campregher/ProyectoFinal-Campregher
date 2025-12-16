@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Catalogo from "./Catalogo";
-import { getList } from "./fetch";
+import Catalogo from "../components/Catalogo";
+import { getList } from "../components/fetch";
 
 function CatalogoContainer() {
   const [products, setProducts] = useState([]);

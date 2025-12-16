@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { getProduct } from "./fetch";
+import { getProduct } from "../components/fetch";
 import { useEffect, useState } from "react";
-import Product from "./Product";
+import Product from "../components/Product";
 
 function ProductContainer() {
   const { id } = useParams();

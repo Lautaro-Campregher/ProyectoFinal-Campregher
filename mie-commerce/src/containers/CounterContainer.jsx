@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Counter from "./Counter";
+import Counter from "../components/Counter";
 
 function CounterContainer() {
   const [counter, setCounter] = useState(0);
