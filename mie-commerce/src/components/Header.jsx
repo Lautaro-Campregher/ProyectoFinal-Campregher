@@ -13,8 +13,11 @@ function Header() {
         <NavLink to="/categorias" className="nav__link">
           Categorias
         </NavLink>
+
+        <NavLink to="/carrito" className="nav__link">
+          🛒Carrito
+        </NavLink>
       </nav>
-      <CartWidget />
     </header>
   );
 }

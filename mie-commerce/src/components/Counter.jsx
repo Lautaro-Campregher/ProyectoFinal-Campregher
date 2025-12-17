@@ -1,9 +1,15 @@
-function Counter(props) {
+function Counter({ counter, handleChange, handleAdd }) {
   return (
     <div>
-      <p id="parrafo">Unidades:{props.counter}</p>
-      <button onClick={props.addProd}>+</button>
-      <button onClick={props.restProd}>-</button>
+      <input
+        type="number"
+        placeholder="Unidades"
+        min="1"
+        value={counter}
+        onChange={handleChange}
+      />
+
+      <button onClick={handleAdd}>Agregar al carrito</button>
     </div>
   );
 }

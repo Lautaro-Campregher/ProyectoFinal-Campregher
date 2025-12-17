@@ -1,12 +1,12 @@
 import Button from "./Button";
 
-function Catalogo(props) {
+function Catalogo({ productos }) {
   return (
     <>
       <div className="container">
-        <h2>Catalogo</h2>
+        <h1>Catalogo</h1>
         <div className="catalogo">
-          {props.productos.map((item) => (
+          {productos.map((item) => (
             <div key={item.id} className="card">
               <h3>{item.title}</h3>
               <img src={item.image} alt={item.title} />

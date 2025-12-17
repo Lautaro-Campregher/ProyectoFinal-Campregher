@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import CatalogoContainer from "./containers/CatalogoContainer";
 import ProductContainer from "./containers/ProductContainer";
 import CategoriasContainer from "./containers/CategoriasContainer";
+import CartView from "./components/CartView";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/product/:id" element={<ProductContainer />}></Route>
           <Route path="/categorias" element={<CategoriasContainer />} />
           <Route path="categorias/product/:id" element={<ProductContainer />} />
+          <Route path="/carrito" element={<CartView />} />
         </Routes>
       </main>
       <Footer />

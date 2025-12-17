@@ -7,7 +7,7 @@ export const cartContext = createContext();
 const Provider = cartContext.Provider;
 
 //Envolvedor
-function CartProvider(props) {
+function CartProvider({ children }) {
   const [cart, setCart] = useState(() => {
     const cartLs = localStorage.getItem("cart");
     return cartLs ? JSON.parse(cartLs) : [];
@@ -17,35 +17,26 @@ function CartProvider(props) {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  function addToCart(product) {
+  function addToCart(product, quantity) {
     setCart((prevCart) => {
       const productExists = prevCart.find((item) => item.id === product.id);
 
       if (productExists) {
         return prevCart.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       }
 
-      return [...prevCart, { ...product, quantity: 1 }];
+      return [...prevCart, { ...product, quantity }];
     });
   }
 
   const totalUnits = cart.reduce((acc, item) => acc + item.quantity, 0);
 
-  //const [total, setTotal] = useState(0);
-
-  //const valueContext = {
-  //total: total,
-  //setTotal: setTotal,
-  //};
-
   return (
-    <Provider value={{ cart, addToCart, totalUnits }}>
-      {props.children}
-    </Provider>
+    <Provider value={{ cart, addToCart, totalUnits }}>{children}</Provider>
   );
 }
 

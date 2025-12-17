@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { cartContext } from "./CartProvider";
+import CounterContainer from "../containers/CounterContainer";
 
 function Product({ product }) {
   const { addToCart } = useContext(cartContext);
 
-  function handleAddCart() {
-    addToCart(product);
+  function handleAddCart(quantity) {
+    addToCart(product, quantity);
   }
 
   return (
@@ -17,7 +18,7 @@ function Product({ product }) {
         </article>
         <p>{product.description}</p>
         <p>${product.price}</p>
-        <button onClick={handleAddCart}>Agregar al carrito</button>
+        <CounterContainer onAdd={handleAddCart} />
       </section>
     </div>
   );
