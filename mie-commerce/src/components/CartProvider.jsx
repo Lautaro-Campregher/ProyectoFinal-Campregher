@@ -13,6 +13,19 @@ function CartProvider({ children }) {
     return cartLs ? JSON.parse(cartLs) : [];
   });
 
+  function resetCart() {
+    setCart([]);
+  }
+
+  function deleteProduct(id) {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  }
+
+  const totalCart = cart.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
@@ -33,10 +46,10 @@ function CartProvider({ children }) {
     });
   }
 
-  const totalUnits = cart.reduce((acc, item) => acc + item.quantity, 0);
-
   return (
-    <Provider value={{ cart, addToCart, totalUnits }}>{children}</Provider>
+    <Provider value={{ cart, addToCart, resetCart, deleteProduct, totalCart }}>
+      {children}
+    </Provider>
   );
 }
 
