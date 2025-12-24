@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Categorias from "../components/Categorias";
+import Productos from "../components/Productos";
 import { getList } from "../services/productsService";
 
-function CategoriasContainer() {
+function ProductosContainer() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function CategoriasContainer() {
       });
   }, []);
 
-  return <Categorias productos={products} />;
+  return <Productos productos={products} />;
 }
 
-export default CategoriasContainer;
+export default ProductosContainer;

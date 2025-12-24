@@ -1,15 +1,16 @@
 import { useState } from "react";
 import Button from "./Button";
 
-function Categorias({ productos }) {
+function Productos({ productos }) {
   const [categoriaBuscada, setCategoriaBuscada] = useState("");
 
   const productosFiltrados = productos.filter((item) =>
     item.category.toLowerCase().includes(categoriaBuscada.toLowerCase())
   );
   return (
-    <div>
+    <div className="container-productos">
       <input
+        className="search-bar"
         type="text"
         placeholder="Buscar categoría..."
         value={categoriaBuscada}
@@ -30,4 +31,4 @@ function Categorias({ productos }) {
   );
 }
 
-export default Categorias;
+export default Productos;

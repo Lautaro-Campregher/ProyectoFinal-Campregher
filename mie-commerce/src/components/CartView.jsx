@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
-import { cartContext } from "../context/CartProvider";
+import { CartContext } from "../context/CartProvider";
 import { db } from "../firebase/config";
 import { addDoc, collection } from "firebase/firestore";
 import PopUp from "./PopUp";
 
 function CartView() {
-  const { cart, resetCart, deleteProduct, totalCart } = useContext(cartContext);
+  const { cart, resetCart, deleteProduct, totalCart } = useContext(CartContext);
 
   const [nombre, setNombre] = useState("");
   const [tel, setTel] = useState("");
@@ -31,7 +31,7 @@ function CartView() {
     try {
       const compraRealizada = collection(db, "Ventas");
 
-      await addDoc(compraRealizada, {
+      const detallesCompra = await addDoc(compraRealizada, {
         comprador: {
           nombre,
           tel,
@@ -40,7 +40,12 @@ function CartView() {
         total: totalCart,
       });
 
-      setCompraData({ nombre, tel, total: totalCart });
+      setCompraData({
+        nombre,
+        tel,
+        total: totalCart,
+        orderId: detallesCompra.id,
+      });
       setShowPopUp(true);
       resetCart();
       setNombre("");
@@ -62,27 +67,29 @@ function CartView() {
       )}
       <h1>Carrito</h1>
       <div>
-        <button onClick={handleResetCart}>Vaciar carrito</button>
+        {cart.length > 0 && (
+          <button onClick={handleResetCart}>Vaciar carrito</button>
+        )}
       </div>
       <div>
         <p>Total:${totalCart.toFixed(2)}</p>
       </div>
       <div className="catalogo">
-        {cart.length === 0 ? (
-          <p>Carrito Vacio!</p>
-        ) : (
+        {cart.length > 0 ? (
           cart.map((item) => (
             <div key={item.id} className="card">
               <h3>{item.title}</h3>
               <img src={item.image} alt={item.title} />
               <p>${item.price}</p>
               <p>Cantidad: {item.quantity}</p>
-              <p>Subtotal: ${item.price * item.quantity}</p>
+              <p>Subtotal: ${(item.price * item.quantity).toFixed(2)}</p>
               <button onClick={() => handleDeleteProduct(item.id)}>
                 Quitar producto
               </button>
             </div>
           ))
+        ) : (
+          <p>Carrito Vacio!</p>
         )}
       </div>
       <form onSubmit={handleComprar}>

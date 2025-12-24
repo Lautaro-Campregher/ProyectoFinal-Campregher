@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { cartContext } from "./CartProvider";
+import { CartContext } from "../context/CartProvider";
 import CounterContainer from "../containers/CounterContainer";
 
 function Product({ product }) {
@@ -7,7 +7,7 @@ function Product({ product }) {
     return <p>Cargando producto...</p>;
   }
 
-  const { addToCart } = useContext(cartContext);
+  const { addToCart } = useContext(CartContext);
 
   function handleAddCart(quantity) {
     addToCart(product, quantity);
@@ -18,7 +18,7 @@ function Product({ product }) {
       <section className="card_producto">
         <h2>{product.title}</h2>
         <article>
-          <img src={product.image} alt={product.title} />
+          <img src={product.img} alt={product.title} />
         </article>
         <p>{product.description}</p>
         <p>${product.price}</p>

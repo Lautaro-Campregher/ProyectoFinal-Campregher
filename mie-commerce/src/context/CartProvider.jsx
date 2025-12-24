@@ -1,12 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 
-//Contexto
-export const cartContext = createContext();
+export const CartContext = createContext();
 
-//Provider
-const Provider = cartContext.Provider;
+const Provider = CartContext.Provider;
 
-//Envolvedor
 function CartProvider({ children }) {
   const [cart, setCart] = useState(() => {
     const cartLs = localStorage.getItem("cart");
@@ -25,6 +22,8 @@ function CartProvider({ children }) {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+
+  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -47,7 +46,16 @@ function CartProvider({ children }) {
   }
 
   return (
-    <Provider value={{ cart, addToCart, resetCart, deleteProduct, totalCart }}>
+    <Provider
+      value={{
+        cart,
+        addToCart,
+        resetCart,
+        deleteProduct,
+        totalCart,
+        totalQuantity,
+      }}
+    >
       {children}
     </Provider>
   );
