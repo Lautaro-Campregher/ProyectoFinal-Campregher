@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { cartContext } from "./CartProvider";
+import { cartContext } from "../context/CartProvider";
 import { db } from "../firebase/config";
 import { addDoc, collection } from "firebase/firestore";
 import PopUp from "./PopUp";
