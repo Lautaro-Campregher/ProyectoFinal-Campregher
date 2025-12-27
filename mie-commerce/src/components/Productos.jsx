@@ -23,6 +23,7 @@ function Productos({ productos }) {
             <h3>{item.title}</h3>
             <img src={item.img} alt={item.title} />
             <h4>{item.category}</h4>
+            <p>{item.price}</p>
             <Button id={item.id} />
           </div>
         ))}

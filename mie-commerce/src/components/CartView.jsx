@@ -74,12 +74,12 @@ function CartView() {
       <div>
         <p>Total:${totalCart.toFixed(2)}</p>
       </div>
-      <div className="catalogo">
+      <div className="carrito">
         {cart.length > 0 ? (
           cart.map((item) => (
             <div key={item.id} className="card">
               <h3>{item.title}</h3>
-              <img src={item.image} alt={item.title} />
+              <img src={item.img} alt={item.title} />
               <p>${item.price}</p>
               <p>Cantidad: {item.quantity}</p>
               <p>Subtotal: ${(item.price * item.quantity).toFixed(2)}</p>
